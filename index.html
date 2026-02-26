@@ -26,85 +26,227 @@
         <div class="grid grid-cols-1 md:grid-cols-3  gap-6">
             <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] p-4  rounded-2xl">
                 <h3>Total</h3>
-                <p class="font-bold text-3xl">0</p>
+                <p id="total-count" class="font-bold text-3xl">0</p>
             </div>
             <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] p-4 bg-base-100 rounded-2xl">
                 <h3>Interview</h3>
-                <p class="font-bold text-3xl text-green-500">0</p>
+                <p id="interview-count" class="font-bold text-3xl text-green-500">0</p>
             </div>
             <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] p-4 bg-base-100 rounded-2xl">
                 <h3>Rejected</h3>
-                <p class="font-bold text-3xl text-red-500">0</p>
+                <p id="rejected-count" class="font-bold text-3xl text-red-500">0</p>
             </div>
         </div>
         <hr class="my-7 text-[#E6E7E9]">
     </header>
 
     <!-- main section  -->
-    <main>
+    <main id="all-container">
         <!-- body text  -->
         <div class="flex justify-between mb-7">
             <h3 class="font-bold text-2xl">Available Jobs</h3>
-            <p>0 jobs</p>
+            <p><span id="avaiable">0</span> jobs</p>
         </div>
 
         <!-- button section  -->
          <div class="space-x-5 mb-10">
-            <button class="btn btn-primary px-9 ">All</button>
-            <button class="btn">Interview</button>
-            <button class="btn">Rejected</button>
+            <button onclick="switchTab('all')" id="all-btn" class="btn btn-primary px-9 ">All</button>
+            <button onclick="switchTab('interview')" id="interview-btn" class="btn">Interview</button>
+            <button onclick="switchTab('rejected')" id="rejected-btn" class="btn">Rejected</button>
          </div>
 
          <!-- card section  -->
-         <section class="space-y-5 mb-20">
+         <section id="all-card" class="space-y-5 mb-20">
             <!-- card 1 -->
-            <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7">
+            <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
                 <div class="space-y-5">
-                    <div class="font-bold text-2xl">MegaCorp Solutions</div>
-                    <div class="font-bold text-gray-500">JavaScript Developer</div>
+                    <div class="font-bold text-2xl">MegaTech Solutions</div>
+                    <div class="font-bold text-gray-500">Frontend Developer</div>
                     <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
                         <div><h3>New York, NY</h3></div>
                         <div><p> • Full-time</p></div>
-                        <div><p>• $130,000 - $170,00</p></div>
+                        <div><p>• $120,000 - $150,000</p></div>
                     </div>
-                    <div class="btn"><h2>NOT APPLIDE</h2></div>
-                    <div><p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p></div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Develop modern web applications using React and Tailwind CSS. Work with a collaborative frontend team.</p></div>
                     <div class="space-x-5">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
                 <!-- delete btn  -->
                 <div>
-                    <button class="border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
                 </div>
             </div>
             <!-- card 2 -->
-             <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7">
+              <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
                 <div class="space-y-5">
-                    <div class="font-bold text-2xl">MegaCorp Solutions</div>
-                    <div class="font-bold text-gray-500">JavaScript Developer</div>
+                    <div class="font-bold text-2xl">CloudNet Systems</div>
+                    <div class="font-bold text-gray-500">Backend Developer</div>
                     <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
-                        <div><h3>New York, NY</h3></div>
+                        <div><h3>Austin, TX</h3></div>
                         <div><p> • Full-time</p></div>
-                        <div><p>• $130,000 - $170,00</p></div>
+                        <div><p>• $110,000 - $140,000</p></div>
                     </div>
-                    <div class="btn"><h2>NOT APPLIDE</h2></div>
-                    <div><p>Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p></div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Build secure REST APIs using Node.js and Express. Maintain database performance and scalability.</p></div>
                     <div class="space-x-5">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
                 <!-- delete btn  -->
                 <div>
-                    <button class="border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can"></i></button>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 3 -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">DevCore Labs</div>
+                    <div class="font-bold text-gray-500">Full Stack Developer</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Remote</h3></div>
+                        <div><p> • Contract</p></div>
+                        <div><p>• $90,000 - $120,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Work on both frontend and backend features. Improve UI performance and API efficiency.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 4 -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">PixelSoft Studio</div>
+                    <div class="font-bold text-gray-500">UI/UX Designer</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Los Angeles, CA</h3></div>
+                        <div><p> • Full-time</p></div>
+                        <div><p>• $85,000 - $105,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Design clean and modern interfaces for web and mobile applications.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 5   -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">DataWave Inc.</div>
+                    <div class="font-bold text-gray-500">Data Analyst</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Chicago, IL</h3></div>
+                        <div><p> • Full-time</p></div>
+                        <div><p>• $95,000 - $115,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Analyze business data and generate insights using SQL and Python.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 6 -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">CodeSphere Ltd.</div>
+                    <div class="font-bold text-gray-500">Java Developer</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Seattle, WA</h3></div>
+                        <div><p> • Full-time</p></div>
+                        <div><p>• $100,000 - $130,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Develop enterprise Java applications using Spring Boot framework.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 7 -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">NexaTech Global</div>
+                    <div class="font-bold text-gray-500">Software Engineer</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Boston, MA</h3></div>
+                        <div><p> • Hybrid</p></div>
+                        <div><p>• $115,000 - $145,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Design scalable software systems and collaborate with cross-functional teams.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
+                </div>
+            </div>
+            <!-- card 8 -->
+             <div class="m-card shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex justify-between p-7 ">
+                <div class="space-y-5">
+                    <div class="font-bold text-2xl">BrightFuture IT</div>
+                    <div class="font-bold text-gray-500">Junior Web Developer</div>
+                    <div class=" flex flex-col md:flex-row text-gray-500 gap-4">
+                        <div><h3>Miami, FL</h3></div>
+                        <div><p> • Internship</p></div>
+                        <div><p>• $45,000 - $60,000</p></div>
+                    </div>
+                    <div class="btn statusd"><h2>NOT APPLIDE</h2></div>
+                    <div><p>Assist in developing responsive websites and fixing frontend bugs.</p></div>
+                    <div class="space-x-5">
+                        <button class="interview btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+                <!-- delete btn  -->
+                <div>
+                    <button class="deleted border-2 rounded-[50%] p-2 text-gray-500"><i class="fa-regular fa-trash-can pointer-events-none"></i></button>
                 </div>
             </div>
          </section>
 
-         <!-- Empty card -->
-         <section class="">
+         
+         <!-- interview-container -->
+          <section id="interview-container" class="hidden">
+           
+           
+          </section>
+          <!-- rejectend-container -->
+          <section id="rejectend-container" class="hidden">
+        
+          </section>
+         
+         <section id="empty-card" class=" hidden">
             <div class="shadow-[0_0_15px_rgba(0,0,0,0.1)] rounded-2xl flex py-16 px-4 justify-center items-center text-center">
                 <div class="space-y-4">
                     <img src="img/jobs.png" class="mx-auto" alt="">
@@ -112,10 +254,9 @@
                     <p class="text-2xl text-gray-600">Check back soon for new job opportunities</p>
                 </div>
             </div>
-         </section>
-
-
-        
+            </section>
     </main>
+    <!-- sj link  -->
+     <script src="js/index.js"></script>
   </body>
 </html>
